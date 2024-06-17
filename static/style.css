@@ -1,0 +1,58 @@
+#loaded {
+    height: 600px;
+    overflow-y: auto;
+}
+
+#panel {
+    width: 400px;
+    height: 760px;
+}
+
+.image {
+    width: 335px;
+    height: 335px;
+    background-color: rgba(0,0,0,.3);
+}
+
+.sprite {
+    height: 60px;
+    width: 60px;
+}
+
+.icon {
+    aspect-ratio: 1 / 1;
+    height: 40px;
+    border-radius: 100%;
+    float: right;
+    align-self: center;
+    transform: translateY(7px);
+}
+
+.total {
+    color: aqua;
+}
+
+.table, .nav-item {
+    background-color: rgba(0,0,0,.3);
+}
+
+.field {
+    color: white;
+    background-color: rgba(0,0,0,.35);
+}
+
+#sheet {
+    width: 630px;
+    height: 760px;
+    margin-left: 50px;
+}
+
+.raise {
+    font-size: larger;
+    color: greenyellow;
+}
+
+.lower {
+    font-size: larger;
+    color: rgb(248, 93, 32);
+}

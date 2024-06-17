@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Enter your description here"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="./static/style.css">
+<script src="./static/script.js" defer></script>
+<title>Pokedex</title>
+</head>
+<body class="d-flex">
+
+    <div class="border rounded shadow p-4 mt-4 ms-4" id="panel">
+        <form onsubmit="handleSubmit(event)" class="row">
+            <div class="form-floating col-8">
+                <input type="text" name="search" id="search" class="form-control">
+                <label for="search" class="ps-3">Pokemon</label>
+            </div>
+            <button type="submit" class="btn btn-outline-primary ms-3 col-3">Add</button>
+        </form>
+        <div class="list-group list-group-flush mt-4" id="loaded">
+
+        </div>
+    </div>
+
+
+    <div class="card border rounded shadow text-white ps-3 pt-3 mt-4" id="sheet">
+        <div class="d-flex">
+            <div class="border rounded image ms-3">
+                <img src="" class="img-fluid" alt="" id="portrait">
+            </div>
+            <div class="list-group list-group-flush ms-3" id="fields">
+                <div class="list-group-item field" id="name">Name</div>
+                <div class="list-group-item field">
+                    <label for="pokedex">Poke&#35;: </label>
+                    <span id="pokedex"></span>
+                </div>
+                <div class="list-group-item field">
+                    <label for="height">Height: </label>
+                    <span id="height"></span>
+                </div>
+                <div class="list-group-item field">
+                    <label for="weight">Weight: </label>
+                    <span id="weight"></span>
+                </div>
+                <div class="list-group-item field">
+                    <label for="type">Type: </label>
+                    <span id="type"></span>
+                </div>
+                <div class="list-group-item field">
+                    <label for="nature">Nature: </label>
+                    <select id="nature"></select>
+                </div>
+                <div class="list-group-item field">
+                    <label for="ability">Ability: </label>
+                    <select id="ability"></select>
+                </div>
+                <div class="list-group-item field">
+                    <label for="level">Level: </label>
+                    <input type="number" name="level" id="level" min="1" max="100">
+                </div>
+            </div>
+        </div>
+
+        <div class="m-3">
+            <ul class="nav nav-tabs">
+                <li class="nav-item btn-group dropstart">
+                    <button type="button" class="nav-link text-white btn dropdown-toggle" data-bs-toggle="dropdown" id="move-button">Moves</button>
+                    <ul class="dropdown-menu" id="moves"></ul>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link active">Stats</button>
+                </li>
+            </ul>
+            <table class="table text-white" id="stats">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                        <th scope="col">Base</th>
+                        <th scope="col">IV</th>
+                        <th scope="col">EV</th>
+                        <th scope="col">Nature</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">HP</th>
+                        <td id="hp" class="total"></td>
+                        <td id="hpbase"></td>
+                        <td><input type="number" name="hpiv" id="hpiv" min="0" max="31"></td>
+                        <td><input type="number" name="hpev" id="hpev" min="0" max="255"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Attack</th>
+                        <td id="attack" class="total"></td>
+                        <td id="attackbase"></td>
+                        <td><input type="number" name="attackiv" id="attackiv" min="0" max="31"></td>
+                        <td><input type="number" name="attackev" id="attackev" min="0" max="255"></td>
+                        <td id="attacknature"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Defense</th>
+                        <td id="defense" class="total"></td>
+                        <td id="defensebase"></td>
+                        <td><input type="number" name="defenseiv" id="defenseiv" min="0" max="31"></td>
+                        <td><input type="number" name="defenseev" id="defenseev" min="0" max="255"></td>
+                        <td id="defensenature"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Sp Atk</th>
+                        <td id="spatk" class="total"></td>
+                        <td id="spatkbase"></td>
+                        <td><input type="number" name="spatkiv" id="spatkiv" min="0" max="31"></td>
+                        <td><input type="number" name="spatkev" id="spatkev" min="0" max="255"></td>
+                        <td id="spatknature"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Sp Def</th>
+                        <td id="spdef" class="total"></td>
+                        <td id="spdefbase"></td>
+                        <td><input type="number" name="spdefiv" id="spdefiv" min="0" max="31"></td>
+                        <td><input type="number" name="spdefev" id="spdefev" min="0" max="255"></td>
+                        <td id="spdefnature"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Speed</th>
+                        <td id="speed" class="total"></td>
+                        <td id="speedbase"></td>
+                        <td><input type="number" name="speediv" id="speediv" min="0" max="31"></td>
+                        <td><input type="number" name="speedev" id="speedev" min="0" max="255"></td>
+                        <td id="speednature"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+</body>
+</html>
